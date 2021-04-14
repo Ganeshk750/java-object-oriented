@@ -60,5 +60,8 @@ public class MapMain {
 
         System.out.println(englishSpanish.keySet().toString());
         System.out.println(englishSpanish.values().toString());
+
+        planats.put(20, null);
+        planats.put(null, null);
     }
 }
