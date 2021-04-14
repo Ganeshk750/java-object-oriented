@@ -55,6 +55,21 @@ public class ListMain {
              shapeList1.add("Cone");
         }
         System.out.println(shapeList1);
+        Object[] shape2 = shapeList1.toArray();
+       // System.out.println(shape2);
 
+        /*---------- LinkedList ----------*/
+        LinkedList<String> orders = new LinkedList<String>();
+        orders.add("order 1");
+        orders.add("order 2");
+        orders.add("order 3");
+        orders.add("order 4");
+        System.out.println(orders);
+        orders.addFirst("order 5");
+        orders.addLast("order 6");
+        System.out.println(orders);
+        orders.removeFirst();
+        orders.removeLast();
+        System.out.println(orders);
     }
 }
