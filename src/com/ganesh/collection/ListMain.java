@@ -1,7 +1,9 @@
 package com.ganesh.collection;
 
 
+import java.sql.SQLOutput;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @created: 14/04/2021 - 4:56 PM
@@ -71,5 +73,39 @@ public class ListMain {
         orders.removeFirst();
         orders.removeLast();
         System.out.println(orders);
+
+        List numberList = new ArrayList();
+        numberList.add(10);
+        numberList.add(5);
+        numberList.add(1);
+        numberList.add(3);
+        numberList.add(9);
+        System.out.println("Before Sorting: "+ numberList);
+        Collections.sort(numberList);
+        System.out.println("After Sorting: "+ numberList);
+
+        /*===== Comparable =====*/
+        List<Mountain> mountains = new ArrayList<>();
+        mountains.add(new Mountain("Everest", 8848));
+        mountains.add(new Mountain("Matterhorn", 4478));
+        mountains.add(new Mountain("K2", 8611));
+        Collections.sort(mountains);
+        System.out.println(mountains.stream()
+                .map(Mountain::getName)
+                .collect(Collectors.toList()));
+
+
+        Comparator<Mountain> mountainComparator = new Comparator<Mountain>() {
+            @Override
+            public int compare(Mountain o1, Mountain o2) {
+                return o2.getHeight() - o1.getHeight();
+            }
+        };
+
+        Collections.sort(mountains, mountainComparator);
+        System.out.println(mountains.stream()
+                   .map(Mountain::getName)
+                   .collect(Collectors.toList()));
+
     }
 }
